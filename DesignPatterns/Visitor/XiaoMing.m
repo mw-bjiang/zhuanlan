@@ -1,13 +1,21 @@
 classdef XiaoMing < Person
     methods
-        function response = getResponse(this,aLanguage)
+        function response = getSpeakResponse(this,aLanguage)
             switch class(aLanguage)
                 case 'Chinese'
-                    response = '浣犲ソ!';
+                    response = '你好!';
                 otherwise
-                    response = '';
-                    
+                    response = getSpeakResponse@Person(this,aLanguage);
             end
         end
+        function response = getSingResponse(this,aLanguage)
+            switch class(aLanguage)
+                case 'Chinese'
+                    response = '好一朵美丽的茉莉花!';
+                otherwise
+                    response = getSingResponse@Person(this,aLanguage);
+            end
+        end
+        
     end
 end

@@ -9,13 +9,13 @@ classdef speakLanguageVisitor < LanguageVisitor
             theVisitor.response = '';
         end
         
-        function visitChinese(this, aLangauge)
-            theResponse = this.person.getResponse(aLangauge);
+        function visitChinese(this, aLanguage)
+            theResponse = this.person.getSpeakResponse(aLanguage);
             this.response = theResponse;
         end
         
-        function visitRussian(this, aLangauge)
-            theResponse = this.person.getResponse(aLangauge);
+        function visitRussian(this, aLanguage)
+            theResponse = this.person.getSpeakResponse(aLanguage);
             this.response = theResponse;
         end
     end

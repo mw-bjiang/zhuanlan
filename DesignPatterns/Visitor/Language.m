@@ -5,11 +5,17 @@ classdef(Abstract) Language < handle
     end
     
     methods(Sealed)
-        function response = getResponse(this,aPerson)
+        function response = getSpeakResponse(this,aPerson)
             aLanguageVisitor = speakLanguageVisitor(aPerson);
             this.accept(aLanguageVisitor);
             response = aLanguageVisitor.response;
         end
+        function response = getSingResponse(this,aPerson)
+            aLanguageVisitor = singLanguageVisitor(aPerson);
+            this.accept(aLanguageVisitor);
+            response = aLanguageVisitor.response;
+        end
+
     end
     
 end
