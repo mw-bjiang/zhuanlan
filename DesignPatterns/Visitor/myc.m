@@ -1,14 +1,15 @@
 classdef myc < Person
     methods
-        function response = getResponse(this,aLanguage)
+        function response = getSpeakResponse(this,aLanguage)
             switch class(aLanguage)
                 case 'Russian'
                     response = 'Privet!';
                 case 'Chinese'
-                    response = 'å¹²å?ï¼?;
+                    response = 'ganha?';
                 otherwise
+                    response = getSpeakResponse@Person(this,aLanguage);
                     
-            end
+            end            
         end
     end
 end

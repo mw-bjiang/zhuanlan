@@ -19,32 +19,43 @@ classdef testVisitor < matlab.unittest.TestCase
     
     
     methods(Test)
-        function testXiaoMing(test)
+        function testXiaoMingSpeak(test)
             me = XiaoMing;
             % Chinese
             lang = Chinese;
-            response = lang.getResponse(me);
-            test.verifyMatches(response,'你好!');
+            response = lang.speak(me);
+            test.verifyMatches(response,'nihao!');
             
             % Russian
             lang = Russian;
-            response = lang.getResponse(me);
-
-            test.verifyEmpty(response);
+            test.verifyError(@()lang.speak(me),'Person:cantSpeak');
+            
         end
         
-        function testmyc(test)
+        function testmycSpeak(test)
             me = myc;
             % Chinese
             lang = Chinese;
-            response = lang.getResponse(me);
-            test.verifyMatches(response,'干哈？');
+            response = lang.speak(me);
+            test.verifyMatches(response,'ganha?');
             
             % Russian
             lang = Russian;
-            response = lang.getResponse(me);
+            response = lang.speak(me);
             test.verifyMatches(response,'Privet!');
         end
         
+        function testXiaoMingSing(test)
+            me = XiaoMing;
+            % Chinese
+            lang = Chinese;
+            response = lang.sing(me);
+            test.verifyMatches(response,'What a beautiful jasmine!');
+            
+            % Russian
+            lang = Russian;
+            test.verifyError(@()lang.sing(me),'Person:cantSing');
+
+        end        
     end
 end

@@ -3,7 +3,7 @@ classdef XiaoMing < Person
         function response = getSpeakResponse(this,aLanguage)
             switch class(aLanguage)
                 case 'Chinese'
-                    response = '你好!';
+                    response = 'nihao!';
                 otherwise
                     response = getSpeakResponse@Person(this,aLanguage);
             end
@@ -11,7 +11,7 @@ classdef XiaoMing < Person
         function response = getSingResponse(this,aLanguage)
             switch class(aLanguage)
                 case 'Chinese'
-                    response = '好一朵美丽的茉莉花!';
+                    response = 'What a beautiful jasmine!';
                 otherwise
                     response = getSingResponse@Person(this,aLanguage);
             end
